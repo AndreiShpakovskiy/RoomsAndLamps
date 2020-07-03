@@ -19,7 +19,7 @@
             <hr>
 
             <br>
-            <h2>You tried to enter this room from the country, the room was not created for.</h2>
+            <h2>You tried to enter the room from the country, the room was not created for.</h2>
             <br>
         </div>
     </div>

@@ -2,6 +2,8 @@ package com.shpakovskiy.roomsandlamps.csvprocessor;
 
 import com.shpakovskiy.roomsandlamps.entity.Country;
 import com.shpakovskiy.roomsandlamps.entity.IpDataItem;
+import com.shpakovskiy.roomsandlamps.repository.CountryRepository;
+import com.shpakovskiy.roomsandlamps.repository.IpDataRepository;
 import com.shpakovskiy.roomsandlamps.service.CountryService;
 import com.shpakovskiy.roomsandlamps.service.IpDataService;
 
@@ -32,9 +34,9 @@ public class CsvProcessor {
 
     public void convertCsvToDb() {
         List<String> csvData = getCsvData(CSV_FILE_PATH);
-        CountryService countryService = new CountryService();
+        CountryService countryService = new CountryService(new CountryRepository());
         countryService.addCountries(getCountries(csvData));
-        IpDataService ipDataService = new IpDataService();
+        IpDataService ipDataService = new IpDataService(new IpDataRepository());
         ipDataService.addItems(getIpData(csvData));
     }
 
@@ -65,7 +67,7 @@ public class CsvProcessor {
             IpDataItem ipDataItem = new IpDataItem();
             ipDataItem.setIpFrom(Long.parseLong(parsedLineParts[IP_FROM_INDEX]));
             ipDataItem.setIpTo(Long.parseLong(parsedLineParts[IP_TO_INDEX]));
-            ipDataItem.setCountryId(new CountryService()
+            ipDataItem.setCountryId(new CountryService(new CountryRepository())
                     .getCountryByName(parsedLineParts[COUNTRY_NAME_INDEX]).getId());
             ipDataItems.add(ipDataItem);
         }
