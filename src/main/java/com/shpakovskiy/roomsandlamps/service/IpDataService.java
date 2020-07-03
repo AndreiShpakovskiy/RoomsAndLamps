@@ -1,8 +1,7 @@
 package com.shpakovskiy.roomsandlamps.service;
 
 import com.shpakovskiy.roomsandlamps.entity.IpDataItem;
-import com.shpakovskiy.roomsandlamps.util.HibernateSessionFactoryUtil;
-import org.hibernate.Session;
+import com.shpakovskiy.roomsandlamps.repository.IpDataRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,34 +9,24 @@ import java.util.List;
 @Service
 public class IpDataService implements IpDataServiceInterface {
 
+    private final IpDataRepository ipDataRepository;
+
+    public IpDataService(IpDataRepository ipDataRepository) {
+        this.ipDataRepository = ipDataRepository;
+    }
+
     @Override
     public void addItem(IpDataItem ipDataItem) {
-        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-            session.beginTransaction();
-            session.save(ipDataItem);
-            session.getTransaction().commit();
-        }
-        catch (Exception e) { e.printStackTrace(); }
+        ipDataRepository.addItem(ipDataItem);
     }
 
     @Override
     public void addItems(List<IpDataItem> ipDataItems) {
-        for (IpDataItem ipDataItem : ipDataItems) {
-            addItem(ipDataItem);
-        }
+        ipDataRepository.addItems(ipDataItems);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public int getCountryIdByNumericIp(long numericIp) {
-        try (Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
-            List<IpDataItem> countries = (List<IpDataItem>) session
-                    .createQuery("FROM IpDataItem idi WHERE :numericIp BETWEEN idi.ipFrom AND idi.ipTo")
-                    .setParameter("numericIp", numericIp)
-                    .list();
-            if (!countries.isEmpty()) { return countries.get(0).getCountryId(); };
-        }
-        catch (Exception e) { e.printStackTrace(); }
-        return -1;
+        return ipDataRepository.getCountryIdByNumericIp(numericIp);
     }
 }

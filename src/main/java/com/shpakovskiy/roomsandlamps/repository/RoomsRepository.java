@@ -21,4 +21,34 @@ public class RoomsRepository implements RoomsRepositoryInterface {
         catch (Exception e) { e.printStackTrace(); }
         return null;
     }
+
+    @Override
+    public void addRoom(Room room) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            session.save(room);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) { e.printStackTrace(); }
+    }
+
+    @Override
+    public Room getRoomById(int id) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            return session.get(Room.class, id);
+        }
+        catch (Exception e) { e.printStackTrace(); }
+        return null;
+    }
+
+    @Override
+    public void switchLampState(Room room) {
+        try(Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession()) {
+            session.beginTransaction();
+            room.setLampOn(!room.isLampOn());
+            session.update(room);
+            session.getTransaction().commit();
+        }
+        catch (Exception e) { e.printStackTrace(); }
+    }
 }
