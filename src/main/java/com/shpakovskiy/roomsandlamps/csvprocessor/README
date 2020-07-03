@@ -1,0 +1,5 @@
+!!! Note !!!
+Classes in this package are NOT a part of the whole project!
+They are needed just to fill "ip_data" table.
+Source CSV file path has to be specified manually.
+And the main method has to be run manually as well.
