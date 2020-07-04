@@ -21,12 +21,17 @@ public class AllRoomsController {
     }
 
     @RequestMapping("/")
-    private void basicDirection(HttpServletResponse response) {
-        try {
-            response.sendRedirect("/all");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private ModelAndView basicDirection(HttpServletResponse response) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("all-rooms");
+        modelAndView.addObject("allRooms", roomsService.getAllRooms());
+        modelAndView.addObject("countryService", countryService);
+        return modelAndView;
+//        try {
+//            response.sendRedirect("/all");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @RequestMapping("/all")
