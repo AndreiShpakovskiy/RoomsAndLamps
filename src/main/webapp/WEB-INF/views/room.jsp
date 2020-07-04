@@ -28,7 +28,8 @@
             stompClient.connect({}, function(frame) {
                 setConnected(true);
                 stompClient.subscribe('/room/switch-state/${room.id}', function(greeting) {
-                    alert(greeting.body);
+                    alert("Greet");
+                    alert(String(greeting.body));
                     setLampState(String(JSON.parse(greeting.body).lampOn));
                 });
             });
