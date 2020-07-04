@@ -27,7 +27,8 @@
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function(frame) {
                 setConnected(true);
-                stompClient.subscribe('/room/switch-state/${room.id}', function(greeting) {
+                //stompClient.subscribe('/room/switch-state/${room.id}', function(greeting) {
+                stompClient.subscribe('/room/switch-state', function(greeting) {
                     alert("Greet");
                     alert(String(greeting.body));
                     setLampState(String(JSON.parse(greeting.body).lampOn));

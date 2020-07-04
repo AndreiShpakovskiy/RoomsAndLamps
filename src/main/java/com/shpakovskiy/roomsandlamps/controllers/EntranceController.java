@@ -49,7 +49,7 @@ public class EntranceController {
     }
 
     @MessageMapping("/switch")
-    @SendTo("/room/switch-state")
+    //@SendTo("/room/switch-state")
     public void switchLampState(Room room) {
         room = roomsService.getRoomById(room.getId());
         roomsService.switchLampState(room);
