@@ -32,11 +32,11 @@
 
         function disconnect() {
             alert("DISCONNECT");
-            if (stompClient != null) {
-                stompClient.disconnect();
-            }
-            setConnected(false);
-            console.log("Disconnected");
+            // if (stompClient != null) {
+            //     stompClient.disconnect();
+            // }
+            // setConnected(false);
+            // console.log("Disconnected");
         }
 
         function switchLampState() {
