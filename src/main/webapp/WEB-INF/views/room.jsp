@@ -27,7 +27,7 @@
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function(frame) {
                 setConnected(true);
-                stompClient.subscribe('/room/switch-state/${room.id}', function(greeting) {
+                stompClient.subscribe('ws://roomsandlamps.herokuapp.com/room/switch-state/${room.id}', function(greeting) {
                 //stompClient.subscribe('/room/switch-state', function(greeting) {
                     alert("Greet");
                     alert(String(greeting.body));
