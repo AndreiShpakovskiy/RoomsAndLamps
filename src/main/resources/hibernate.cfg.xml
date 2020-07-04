@@ -6,8 +6,8 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/rooms_and_lamps?serverTimezone=Europe/Minsk&amp;useSSL=false</property>
-        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.url">jdbc:mysql://db4free.net:3306/rooms_and_lamps?serverTimezone=Europe/Minsk&amp;useSSL=false</property>
+        <property name="hibernate.connection.username">shpakovskiy</property>
         <property name="hibernate.connection.password">1234567eight</property>
         <property name="show_sql">true</property>
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
