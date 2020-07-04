@@ -8,9 +8,9 @@
     <link href="<c:url value="/res/css/room.css"/>" rel="stylesheet" type="text/css"/>
     <title>${room.name}</title>
 <%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.0.3/sockjs.js"></script>--%>
-    <script src="../../res/js/sockjs-0.3.4.js"></script>
+    <script src="${pageContext.request.contextPath}/res/js/sockjs-0.3.4.js"></script>
 <%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>--%>
-    <script src="../../res/js/stomp.js"></script>
+    <script src="${pageContext.request.contextPath}/res/js/stomp.js"></script>
     <script type="text/javascript">
         let stompClient = null;
 
