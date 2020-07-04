@@ -46,6 +46,7 @@
         function switchLampState() {
             alert("SWITCH STATE");
             setLampState('true');
+            alert(String(${room.lampOn}));
             stompClient.send("/lamp/switch", {}, JSON.stringify({ "id": ${room.id} }));
         }
 
