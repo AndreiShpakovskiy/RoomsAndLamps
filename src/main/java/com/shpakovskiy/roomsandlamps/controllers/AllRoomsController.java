@@ -20,7 +20,7 @@ public class AllRoomsController {
         this.countryService = countryService;
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/a")
     private ModelAndView basicDirection(/*HttpServletResponse response*/) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("all-rooms");
