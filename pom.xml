@@ -68,26 +68,8 @@
 
     <dependency>
       <groupId>org.springframework</groupId>
-      <artifactId>spring-aspects</artifactId>
-      <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework</groupId>
       <artifactId>spring-aop</artifactId>
       <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjrt</artifactId>
-      <version>1.9.5</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.aspectj</groupId>
-      <artifactId>aspectjweaver</artifactId>
-      <version>1.9.5</version>
     </dependency>
 
     <dependency>
@@ -141,30 +123,6 @@
     </dependency>
 
     <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>javax.mail-api</artifactId>
-      <version>1.6.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.sun.mail</groupId>
-      <artifactId>javax.mail</artifactId>
-      <version>1.6.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.mchange</groupId>
-      <artifactId>c3p0</artifactId>
-      <version>0.9.5.2</version>
-    </dependency>
-
-    <dependency>
-      <groupId>commons-codec</groupId>
-      <artifactId>commons-codec</artifactId>
-      <version>1.14</version>
-    </dependency>
-
-    <dependency>
       <groupId>one.util</groupId>
       <artifactId>streamex</artifactId>
       <version>${streamex.version}</version>
@@ -182,30 +140,23 @@
       <version>${spring.version}</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-all</artifactId>
-      <version>1.10.19</version>
-      <scope>test</scope>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.sparkjava</groupId>-->
+<!--      <artifactId>spark-core</artifactId>-->
+<!--      <version>2.9.2</version>-->
+<!--    </dependency>-->
 
-    <dependency>
-      <groupId>com.sparkjava</groupId>
-      <artifactId>spark-core</artifactId>
-      <version>2.9.2</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.sparkjava</groupId>-->
+<!--      <artifactId>spark-template-freemarker</artifactId>-->
+<!--      <version>2.7.1</version>-->
+<!--    </dependency>-->
 
-    <dependency>
-      <groupId>com.sparkjava</groupId>
-      <artifactId>spark-template-freemarker</artifactId>
-      <version>2.7.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.heroku.sdk</groupId>
-      <artifactId>heroku-jdbc</artifactId>
-      <version>0.1.1</version>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>com.heroku.sdk</groupId>-->
+<!--      <artifactId>heroku-jdbc</artifactId>-->
+<!--      <version>0.1.1</version>-->
+<!--    </dependency>-->
 
   </dependencies>
 
