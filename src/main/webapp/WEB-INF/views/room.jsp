@@ -22,7 +22,7 @@
         }
 
         function connect() {
-            //alert("CONNECT");
+            alert("CONNECT");
             let socket = new SockJS('/switch');
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function(frame) {
@@ -44,7 +44,8 @@
         }
 
         function switchLampState() {
-            //alert("SWITCH STATE");
+            alert("SWITCH STATE");
+            setLampState('true');
             stompClient.send("/lamp/switch", {}, JSON.stringify({ "id": ${room.id} }));
         }
 
