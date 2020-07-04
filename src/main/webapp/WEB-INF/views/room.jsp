@@ -16,8 +16,8 @@
 
         function setConnected(connected) {
             document.getElementById('lamp').style.visibility = connected ? 'visible' : 'hidden';
-            alert(${room.lampOn});
-            setLampState(${room.lampOn} ? 'true' : 'false');
+            alert(String(${room.lampOn}));
+            setLampState(String(${room.lampOn}) ? 'true' : 'false');
             console.log("Connected");
         }
 
