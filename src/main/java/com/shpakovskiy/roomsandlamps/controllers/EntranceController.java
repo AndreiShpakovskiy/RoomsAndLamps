@@ -33,11 +33,12 @@ public class EntranceController {
                                    HttpServletRequest request,
                                    HttpServletResponse response) {
 
-        ipSecurityService.checkEntrancePossibility(roomsService.getRoomById(roomId), request, response);
+        //ipSecurityService.checkEntrancePossibility(roomsService.getRoomById(roomId), request, response);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("room");
         modelAndView.addObject("room", roomsService.getRoomById(roomId));
+        //modelAndView.addObject("ipaddress", request.getRemoteHost());
         return modelAndView;
     }
 
@@ -49,7 +50,7 @@ public class EntranceController {
     }
 
     @MessageMapping("/switch")
-    //@SendTo("/room/switch-state")
+    @SendTo("/room/switch-state")
     public void switchLampState(Room room) {
         room = roomsService.getRoomById(room.getId());
         roomsService.switchLampState(room);
