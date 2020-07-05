@@ -7,16 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<c:url value="/res/css/room.css"/>" rel="stylesheet" type="text/css"/>
     <title>${room.name}</title>
-<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.0.3/sockjs.js"></script>--%>
     <script src="${pageContext.request.contextPath}/res/js/sockjs-0.3.4.js"></script>
-<%--    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>--%>
     <script src="${pageContext.request.contextPath}/res/js/stomp.js"></script>
     <script type="text/javascript">
         let stompClient = null;
 
         function setConnected(connected) {
             document.getElementById('lamp').style.visibility = connected ? 'visible' : 'hidden';
-            alert(String(${room.lampOn}));
             setLampState(String(${room.lampOn}) ? 'true' : 'false');
             console.log("Connected");
         }
@@ -26,11 +23,8 @@
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function(frame) {
                 setConnected(true);
-                stompClient.subscribe('/room/switch-state/${room.id}', function(greeting) {
-                //stompClient.subscribe('/room/switch-state', function(greeting) {
-                    alert("Greet");
-                    alert(String(greeting.body));
-                    setLampState(String(JSON.parse(greeting.body).lampOn));
+                stompClient.subscribe('/room/switch-state/${room.id}', function(roomState) {
+                    setLampState(String(JSON.parse(roomState.body).lampOn));
                 });
             });
         }
