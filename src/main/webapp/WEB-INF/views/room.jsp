@@ -23,7 +23,7 @@
 
         function connect() {
             alert("CONNECT");
-            let socket = new SockJS('/switch');
+            let socket = new SockJS('https://roomsandlamps.herokuapp.com/switch');
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function(frame) {
                 setConnected(true);
