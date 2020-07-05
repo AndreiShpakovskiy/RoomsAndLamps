@@ -5,7 +5,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class HttpRequestUtils {
+public class HttpRequestUtil {
 
     private static final String[] IP_HEADER_CANDIDATES = {
             "X-Forwarded-For",
