@@ -21,17 +21,17 @@ public class AllRoomsController {
     }
 
     @RequestMapping("/")
-    private ModelAndView basicDirection(HttpServletResponse response) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("all-rooms");
-        modelAndView.addObject("allRooms", roomsService.getAllRooms());
-        modelAndView.addObject("countryService", countryService);
-        return modelAndView;
-//        try {
-//            response.sendRedirect("/all");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+    private void basicDirection(HttpServletResponse response) {
+//        ModelAndView modelAndView = new ModelAndView();
+//        modelAndView.setViewName("all-rooms");
+//        modelAndView.addObject("allRooms", roomsService.getAllRooms());
+//        modelAndView.addObject("countryService", countryService);
+//        return modelAndView;
+        try {
+            response.sendRedirect("/all");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping("/all")

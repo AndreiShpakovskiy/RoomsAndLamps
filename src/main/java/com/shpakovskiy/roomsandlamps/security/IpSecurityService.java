@@ -3,6 +3,7 @@ package com.shpakovskiy.roomsandlamps.security;
 import com.shpakovskiy.roomsandlamps.entity.Room;
 import com.shpakovskiy.roomsandlamps.service.CountryService;
 import com.shpakovskiy.roomsandlamps.service.Tracker;
+import com.shpakovskiy.roomsandlamps.util.HttpRequestUtils;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,8 +23,9 @@ public class IpSecurityService implements IpSecurityServiceInterface {
 
     @Override
     public boolean checkEntrancePossibility(Room room, HttpServletRequest request, HttpServletResponse response) {
-        String ip = request.getRemoteAddr();
-        //System.out.println(ip);
+        //String ip = request.getRemoteAddr();
+        String ip = HttpRequestUtils.getClientIp();
+        System.out.println(ip);
         if (ip.equals("0:0:0:0:0:0:0:1")) {
             ip = "134.17.139.29";
         }
