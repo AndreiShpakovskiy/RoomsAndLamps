@@ -22,24 +22,25 @@ public class IpSecurityService implements IpSecurityServiceInterface {
 
     @Override
     public boolean checkEntrancePossibility(Room room, HttpServletRequest request, HttpServletResponse response) {
-//        String ip = request.getRemoteHost();
-//        if (ip.equals("0:0:0:0:0:0:0:1")) {
-//            ip = "134.17.139.29";
-//        }
-//
-//        if (countryService.getCountryById(room.getCountryId())
-//                .getName().compareToIgnoreCase(tracker.getCountryByIp(ip)
-//                .getName()) == 0) {
-//            return true;
-//        }
-//        else {
-//            try {
-//                response.sendRedirect("/enter/access-denied");
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return false;
-//        }
-        return true;
+        String ip = request.getRemoteAddr();
+        //System.out.println(ip);
+        if (ip.equals("0:0:0:0:0:0:0:1")) {
+            ip = "134.17.139.29";
+        }
+
+        if (countryService.getCountryById(room.getCountryId())
+                .getName().compareToIgnoreCase(tracker.getCountryByIp(ip)
+                .getName()) == 0) {
+            return true;
+        }
+        else {
+            try {
+                response.sendRedirect("/enter/access-denied");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return false;
+        }
+        //return true;
     }
 }

@@ -33,12 +33,12 @@ public class EntranceController {
                                    HttpServletRequest request,
                                    HttpServletResponse response) {
 
-        //ipSecurityService.checkEntrancePossibility(roomsService.getRoomById(roomId), request, response);
+        ipSecurityService.checkEntrancePossibility(roomsService.getRoomById(roomId), request, response);
 
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("room");
         modelAndView.addObject("room", roomsService.getRoomById(roomId));
-        //modelAndView.addObject("ipaddress", request.getRemoteHost());
+//        modelAndView.addObject("ipaddress", request.getRemoteAddr());
         return modelAndView;
     }
 
